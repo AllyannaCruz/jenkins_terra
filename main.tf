@@ -33,7 +33,7 @@ resource "aws_instance" "instance" {
     key_name="user1_deployer-key"
     count=4 #1
     tags = {
-        Name="user-instance-${count.index}"
+        Name="user-instance-${count.index}",
         role=count.index==0?"user1-lb": (count.index<4?"user1-web":"user1-backend")
     }
 }
